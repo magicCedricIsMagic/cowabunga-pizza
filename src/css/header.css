@@ -1,0 +1,24 @@
+.header {
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--header-height);
+	background-color: var(--col-lime);
+	padding: var(--size-xs) var(--size-xl);
+	gap: var(--size-xl);
+	box-shadow: 0 3px 0 3px oklch(from var(--col-red) l c h / 50%);
+	width: 100%;
+}
+
+.header__logo {
+	height: 12rem;
+}
+
+.header__nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--size-lg);
+}

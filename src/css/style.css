@@ -1,0 +1,58 @@
+@import "./common.css";
+@import "./header.css";
+@import "./footer.css";
+
+:root {
+	--text-family-main: "Fredoka", serif;
+	--text-family-alt: "Freckle Face", serif;
+	--header-height: 14rem;
+}
+
+body {
+	background-color: var(--col-background);
+}
+
+.button {
+	--col-shadow: var(--col-cyan);
+	font-size: var(--text-lg);
+	font-family: var(--text-family-alt);
+	border-radius: var(--size-sm);
+	border: 4px solid var(--col-white);
+	box-shadow: 0 3px 0 3px var(--col-shadow);
+}
+.button--sm {
+	font-family: var(--text-family-main);
+	font-size: var(--text-md);
+	border: none;
+	box-shadow: none;
+	border-radius: var(--size-xs);
+}
+
+.main {
+	margin-top: var(--header-height);
+	padding: var(--size-xxl);
+	align-items: center;
+}
+
+.section {
+	--padding-section-block: var(--size-xxl);
+	--padding-section-inline: var(--size-xxl);
+	padding: var(--padding-section-block) var(--padding-section-inline);
+	background-color: oklch(from var(--col-cyan) l c h / 25%);
+	border-radius: var(--size-lg);
+	box-shadow: 0 2px 0 6px var(--col-cyan);
+	max-width: calc(60ch + var(--padding-section-inline) * 2);
+}
+
+.section-accueil {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-md);
+	padding-block-start: 0;
+}
+
+.section-accueil__logo {
+	width: 40rem;
+	margin-top: -5rem;
+}
