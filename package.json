@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "dist/index.html",
   "scripts": {
-    "build": "npx webpack",
-    "dev": "npx webpack serve"
+    "build": "webpack --mode production",
+    "dev": "webpack serve",
+    "deploy": "cd dist & railway up --detach & cd ../"
   },
   "author": "jsmith",
   "license": "ISC",
