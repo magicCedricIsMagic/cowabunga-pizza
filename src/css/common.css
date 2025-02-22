@@ -191,24 +191,12 @@ pre {
 	font-style: normal;
 }
 
-p+p {
+/* p+p {
 	margin-top: var(--size-xs);
-}
+} */
 
 .image {
 	max-width: 100%;
-}
-
-.txt-left {
-	text-align: left;
-}
-
-.txt-center {
-	text-align: center;
-}
-
-.txt-right {
-	text-align: right;
 }
 
 .flexer {
@@ -450,6 +438,43 @@ p+p {
 	pointer-events: none;
 	--btn-col: var(--col-light-gray);
 	--btn-text-col: var(--col-gray);
+}
+
+.text-primary {
+	color: var(--col-primary);
+}
+.text-cyan {
+	color: var(--col-cyan);
+}
+.text-secondary {
+	color: var(--col-secondary);
+}
+.text-green {
+	color: var(--col-green);
+}
+.text-success {
+	color: var(--col-success);
+}
+.text-orange {
+	color: var(--col-orange);
+}
+.text-warning {
+	color: var(--col-warning);
+}
+.text-red {
+	color: var(--col-red);
+}
+.text-danger {
+	color: var(--col-danger);
+}
+.text-dark {
+	color: var(--col-dark);
+}
+.text-gray {
+	color: var(--col-gray);
+}
+.text-light-gray {
+	color: var(--col-light-gray);
 }
 
 .bg-primary {

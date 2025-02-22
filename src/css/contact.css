@@ -1,0 +1,13 @@
+.section-contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-sm);
+	text-align: center;
+	text-wrap: balance;
+}
+
+.section-contact__img {
+	width: 20rem;
+	filter: drop-shadow(4px 4px 0 var(--col-orange));
+}

@@ -1,3 +1,5 @@
+import { displayMoney } from "/src/js/textUtils.js"
+
 const pizzas = [
 	{
 		img: "napolitaine.webp",
@@ -32,7 +34,7 @@ const pizzas = [
 	{
 		img: "coeur.webp",
 		name: "L'Amoureuse",
-		description: "Base chamalow, guimauve, câlins, douceurs et bisous 💚",
+		description: "Base chamalow, guimauve, câlins, douceurs et bisous\u00a0💚",
 		price: 999,
 		priceAsterisk: true,
 		asterisk: "L'amour est aveugle"
@@ -54,7 +56,7 @@ const pizzas = [
 	{
 		img: "ananas.webp",
 		name: "La Nana",
-		description: "Base tomate, ana - Nan mais c'est quoi ça, on est un vrai resto ici nom d'un nunchaku\u00a0!",
+		description: "Base tomate, ana - Nan mais c'est quoi ça on est un vrai resto ici nom d'un nunchaku\u00a0!",
 		price: false,
 	},
 	{
@@ -129,7 +131,7 @@ for (const pizza of pizzas) {
 	if (!pizza.price) {
 		pizza__price.textContent = "Pas à vendre"
 	}
-	else pizza__price.textContent = `${pizza.price}\u00a0$`
+	else pizza__price.textContent = displayMoney(pizza.price)
 	if (pizza.priceAsterisk) {
 		pizza__price.innerHTML += `<span class="text-regular">*</span>`
 	}

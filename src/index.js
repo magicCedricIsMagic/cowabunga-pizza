@@ -13,7 +13,7 @@ for (const _buttonNav of _allButtonsNav) {
 }
 
 function toggleNav(clickedButton) {
-	console.log("clickedButton", clickedButton)
+	window.scrollTo(0, 0);
 	_main.innerHTML = ""
 	for (const _buttonNav of _allButtonsNav) {
 		_buttonNav.classList.remove("button--disabled")

@@ -1,7 +1,7 @@
 .section-menu {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-lg);
+	gap: var(--size-md);
 }
 
 .pizza {
@@ -13,14 +13,18 @@
 	;
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto auto 1fr;
-	gap: var(--size-sm) var(--size-lg);
+	gap: var(--size-sm) var(--size-xl);
 	white-space: pre-wrap;
 }
 .pizza__photo {
 	grid-area: pho;
 	perspective: 45rem;
 	height: 20rem;
-	filter: drop-shadow(0 var(--size-xxs) 0 oklch(from var(--col-green) l c h / 40%));
+	filter: drop-shadow(0 var(--size-xxs) 0 oklch(from var(--col-cyan) l c h / 62%));
+	transition: var(--transition-slow);
+	&:hover {
+		scale: 110%;
+	}
 }
 .pizza__photo-figure {
 	transform: rotateX(45deg);

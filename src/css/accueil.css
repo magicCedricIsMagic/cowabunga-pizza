@@ -9,6 +9,6 @@
 }
 
 .section-accueil__logo {
-	width: 40rem;
+	width: 50rem;
 	margin-top: calc(-1 * var(--padding-section-block) - 5rem);
 }
