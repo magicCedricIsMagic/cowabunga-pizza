@@ -317,18 +317,19 @@ pre {
 }
 
 .separator {
-	color: var(--col-gray);
-	border: 0 solid color-mix(in srgb, currentColor, transparent);
+	--width-separator: 1px;
+	--col-separator: var(--col-gray);
+	border: 0 solid color-mix(in srgb, var(--col-separator), transparent);
 }
 
 .separator--horizontal {
 	width: 100%;
-	border-top-width: 1px;
+	border-top-width: var(--width-separator);
 }
 
 .separator--vertical {
 	height: 100%;
-	border-left-width: 1px;
+	border-left-width: var(--width-separator);
 }
 
 .middle-center {

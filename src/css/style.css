@@ -75,3 +75,8 @@ strong {
 .section__title {
 	color: color-mix(in srgb, var(--col-red) 50%, var(--col-dark));
 }
+
+.separator {
+	--width-separator: 3px;
+	--col-separator: oklch(from var(--col-orange) l c h / 62%);
+}
