@@ -4,6 +4,10 @@ import sectionMenu from "/src/js/sectionMenu.js"
 import sectionContact from "/src/js/sectionContact.js"
 
 const _main = document.querySelector(".main")
+const _header__logo = document.querySelector(".header__logo")
+_header__logo.addEventListener("click", (e) => {
+	goHome()
+})
 
 const _allButtonsNav = document.querySelectorAll(".header__button")
 for (const _buttonNav of _allButtonsNav) {
@@ -34,4 +38,7 @@ function toggleNav(clickedButton) {
  	_main.append(newContent)
 }
 
-toggleNav(document.querySelector(".header__button[data-home-nav='accueil']"))
+function goHome() {
+	toggleNav(document.querySelector(".header__button[data-home-nav='accueil']"))
+}
+goHome()

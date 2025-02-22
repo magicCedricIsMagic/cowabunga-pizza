@@ -15,6 +15,7 @@
 
 .header__logo {
 	height: 12rem;
+	cursor: pointer;
 }
 
 .header__nav {

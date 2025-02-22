@@ -34,7 +34,7 @@ strong {
 	border-radius: var(--size-sm);
 	border: 4px solid var(--col-white);
 	box-shadow: 0 3px 0 3px var(--col-shadow);
-	&:not(.button--sm) {
+	&:not(:is(.button--sm, .button--xs)) {
 		&:hover,
 		&:focus-visible {
 			translate: 0 2px;
@@ -42,12 +42,21 @@ strong {
 		}
 	}
 }
-.button--sm {
+
+.button--sm,
+.button--xs {
 	font-family: var(--text-family-main);
-	font-size: var(--text-md);
 	border: none;
 	box-shadow: none;
+}
+.button--sm {
+	font-size: var(--text-md);
 	border-radius: var(--size-xs);
+}
+.button--xs {
+	padding: var(--size-xxxs) var(--size-xs);
+	font-size: var(--text-sm);
+	border-radius: var(--size-xxs);
 }
 .button--disabled {
 	/* --col-shadow: var(--col-light-gray); */
