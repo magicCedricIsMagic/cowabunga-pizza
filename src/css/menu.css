@@ -1,0 +1,52 @@
+.section-menu {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-lg);
+}
+
+.pizza {
+	display: grid;
+	grid-template-areas:
+		"pho nam"
+		"pho des"
+		"pho pri"
+	;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto auto 1fr;
+	gap: var(--size-sm) var(--size-lg);
+	white-space: pre-wrap;
+}
+.pizza__photo {
+	grid-area: pho;
+	perspective: 45rem;
+	height: 20rem;
+	filter: drop-shadow(0 var(--size-xxs) 0 oklch(from var(--col-green) l c h / 40%));
+}
+.pizza__photo-figure {
+	transform: rotateX(45deg);
+	translate: 0 -5rem;
+}
+.pizza__photo-img {
+	width: 25rem;
+	animation: rotate-pizza infinite 40s linear;
+}
+@keyframes rotate-pizza {
+	to {
+		rotate: 360deg;
+	}
+}
+.pizza__name {
+	grid-area: nam;
+}
+.pizza__description {
+	grid-area: des;
+}
+.pizza__asterisk {
+	margin-top: var(--size-sm);
+	font-size: var(--text-xs);
+	opacity: 0.62;
+}
+.pizza__price {
+	grid-area: pri;
+	margin: auto 0 0;
+}

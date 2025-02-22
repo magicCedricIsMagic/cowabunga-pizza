@@ -1,0 +1,14 @@
+.section-accueil {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-md);
+	padding-block-start: 0;
+	text-align: center;
+	text-wrap: balance;
+}
+
+.section-accueil__logo {
+	width: 40rem;
+	margin-top: calc(-1 * var(--padding-section-block) - 5rem);
+}

@@ -10,6 +10,7 @@
 	--col-yellow: #fff180;
 	--col-orange: #fe8f47;
 	--col-red: #f53b36;
+	--col-purple: #d085f3;
 
 	--col-primary: var(--col-green);
 	--col-secondary: var(--col-cyan);
@@ -24,7 +25,7 @@
 	
 	--col-text: var(--col-dark);
 	--col-background: var(--col-yellow);
-	--col-shadow: color-mix(in srgb, var(--col-dark) 12.5%, var(--col-transparent));
+	--col-shadow: color-mix(in srgb, var(--col-dark) 12.5%, transparent);
 
 	--golden-ratio: 1.618;
 	--size-xxxs: calc(var(--size-xxs) / var(--golden-ratio));
@@ -37,13 +38,18 @@
 	--size-xxl: calc(var(--size-xl) * var(--golden-ratio));
 	--size-xxxl: calc(var(--size-xxl) * var(--golden-ratio));
 	
-	--text-xs: calc(var(--text-sm) / var(--golden-ratio));
-	--text-sm: calc(var(--text-md) / var(--golden-ratio));
-	--text-md: 1.8rem;
-	--text-lg: calc(var(--text-md) * var(--golden-ratio));
-	--text-xl: calc(var(--text-lg) * var(--golden-ratio));
-	--text-xxl: calc(var(--text-xl) * var(--golden-ratio));
-	--text-xxxl: calc(var(--text-xxl) * var(--golden-ratio));
+	--text-growth-factor: 1.3;
+	--text-xs: calc(var(--text-sm) / var(--text-growth-factor));
+	--text-sm: calc(var(--text-md) / var(--text-growth-factor));
+	--text-md: 2.4rem;
+	--text-lg: calc(var(--text-md) * var(--text-growth-factor));
+	--text-xl: calc(var(--text-lg) * var(--text-growth-factor));
+
+	--title-xs: var(--text-xl);
+	--title-sm: calc(var(--title-xs) * var(--text-growth-factor));
+	--title-md: calc(var(--title-sm) * var(--text-growth-factor));
+	--title-lg: calc(var(--title-md) * var(--text-growth-factor));
+	--title-xl: calc(var(--title-lg) * var(--text-growth-factor));
 
 	--text-family-main: sans-serif;
 	--text-family-alt: serif;
@@ -80,7 +86,7 @@
 }
 
 body {
-	font-size: 1.8rem;
+	font-size: var(--text-md);
 	font-family: var(--text-family-main);
 	margin: 0;
 	padding: 0;
@@ -118,12 +124,6 @@ pre {
 	border-radius: var(--size-xs);
 }
 
-.text-xxxl {
-	font-size: var(--text-xxxl);
-}
-.text-xxl {
-	font-size: var(--text-xxl);
-}
 .text-xl {
 	font-size: var(--text-xl);
 }
@@ -139,18 +139,33 @@ pre {
 .text-xs {
 	font-size: var(--text-xs);
 }
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
 
-.title {
+[class*="title-"] {
 	font-family: var(--text-family-alt);
 }
-.title--h1 {
-	font-size: var(--text-xxl);
+.title-xl {
+	font-size: var(--title-xl);
 }
-.title--h2 {
-	font-size: var(--text-xl);
+.title-lg {
+	font-size: var(--title-lg);
 }
-.title--h3 {
-	font-size: var(--text-lg);
+.title-md {
+	font-size: var(--title-md);
+}
+.title-sm {
+	font-size: var(--title-sm);
+}
+.title-xs {
+	font-size: var(--title-xs);
 }
 
 .text-family-main {
@@ -315,7 +330,7 @@ p+p {
 
 .separator {
 	color: var(--col-gray);
-	border: 0 solid color-mix(in srgb, currentColor, var(--col-transparent));
+	border: 0 solid color-mix(in srgb, currentColor, transparent);
 }
 
 .separator--horizontal {
@@ -344,14 +359,14 @@ p+p {
 	gap: var(--size-sm);
 	justify-content: center;
 	align-items: center;
-	border: 1px solid var(--col-transparent);
+	border: 1px solid transparent;
 	border-radius: 999rem;
 	color: var(--btn-text-col);
 	background-color: var(--btn-col);
 	text-wrap: balance;
 	text-decoration: none;
 	cursor: pointer;
-	outline: 0 solid var(--col-transparent);
+	outline: 0 solid transparent;
 	transition: var(--transition);
 	font-size: var(--text-md);
 	padding: var(--size-xs) var(--size-md);
@@ -362,7 +377,7 @@ p+p {
 		transition: var(--transition-quick);
 	}
 	&:focus-visible {
-		outline: 2px solid color-mix(in srgb, var(--btn-col) 40%, var(--col-transparent));
+		outline: 2px solid color-mix(in srgb, var(--btn-col) 40%, transparent);
 	}
 	&[hidden] {
 		opacity: 0;
@@ -372,13 +387,13 @@ p+p {
 .button--outline {
 	color: var(--btn-col);
 	border: 1px solid var(--btn-col);
-	background-color: var(--col-transparent);
+	background-color: transparent;
 
 	&:hover,
 	&:focus-visible {
 		color: var(--btn-col-hover);
 		border-color: var(--btn-col-hover);
-		background-color: color-mix(in srgb, var(--btn-col) 15%, var(--col-transparent));
+		background-color: color-mix(in srgb, var(--btn-col) 15%, transparent);
 	}
 }
 .button--sm {
@@ -429,6 +444,12 @@ p+p {
 }
 .button--gray {
 	--btn-col: var(--col-gray);
+}
+
+.button--disabled {
+	pointer-events: none;
+	--btn-col: var(--col-light-gray);
+	--btn-text-col: var(--col-gray);
 }
 
 .bg-primary {
@@ -496,19 +517,19 @@ p+p {
 
 .form-control {
 	--highlight-col: var(--col-gray);
-	outline: 0 solid var(--col-transparent);
+	outline: 0 solid transparent;
 	min-height: var(--clickables-min-height);
 	font-size: inherit;
 	font-family: inherit;
 	border: 1px solid var(--highlight-col);
 	border-radius: var(--size-xs);
 	padding: var(--size-xxs) var(--size-sm);
-	background: linear-gradient(color-mix(in srgb, var(--highlight-col) 12.5%, var(--col-transparent)), var(--col-transparent) 2.5rem);
+	background: linear-gradient(color-mix(in srgb, var(--highlight-col) 12.5%, transparent), transparent 2.5rem);
 	transition: var(--transition);
 	
 	&:hover,
 	&:focus-visible {
-		outline: 2px solid color-mix(in srgb, var(--highlight-col) 40%, var(--col-transparent));
+		outline: 2px solid color-mix(in srgb, var(--highlight-col) 40%, transparent);
 		transition: var(--transition-quick);
 	}
 
@@ -560,7 +581,7 @@ p+p {
 .fieldset {
 	padding: var(--size-sm) var(--size-sm) var(--size-sm);
 	border-radius: var(--size-xs);
-	border: 1px solid color-mix(in srgb, var(--col-gray), var(--col-transparent));
+	border: 1px solid color-mix(in srgb, var(--col-gray), transparent);
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--size-xs) var(--size-md);
@@ -578,10 +599,10 @@ p+p {
 	--highlight-col: var(--col-gray);
 
 	input {
-		outline: 0 solid var(--col-transparent);
+		outline: 0 solid transparent;
 		transition: var(--transition);
 		&:focus-visible {
-			outline: 2px solid color-mix(in srgb, var(--highlight-col) 40%, var(--col-transparent));
+			outline: 2px solid color-mix(in srgb, var(--highlight-col) 40%, transparent);
 			transition: var(--transition-quick);
 		}
 	}
